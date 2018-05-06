@@ -17,11 +17,13 @@ body {
 #header{
   height:171px;
 }
-img{
+.logo {
   width:50px;
 }
 img, h1{
   display:inline-block;
+}
+
 }
 form{
   margin-left: 90px;
@@ -40,8 +42,8 @@ input[type="url"],
 textarea,
 select {
   background: rgba(255,255,255,0.1);
+  height: 50px;
   font-size: 16px;
-  height: auto;
   margin: 0;
   outline: 0;
   padding: 15px;
@@ -50,10 +52,23 @@ select {
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
+  -webkit-transition: height 1s; /* Safari */
+  transition: height 1s;
+
 }
 
-.focused{
+input[type="text"]:focus {
   border: 3px solid #6e9a21;
+  height: 100px;
+  font-size: 2em;
+ 
+}
+
+input[type="email"]:focus {
+  border: 3px solid #6e9a21;
+  height: 100px;
+  font-size: 2em;
+ 
 }
 
 select {
@@ -92,6 +107,32 @@ label.light {
   font-weight: 300;
   display: inline;
 }
+
+ #thanks{
+  display:none;
+  }
+
+ #thanks h1{
+
+  font-size:5em;
+  margin:0;
+  padding:0;
+
+
+ }
+
+ .mock{
+  position:absolute;
+  z-index:999;
+  width:350px;
+  height:308px;
+  top:160px;
+  margin-left:858px;
+  cursor: pointer;
+
+ }
+
+ 
 
 @media screen and (min-width: 480px) {
 

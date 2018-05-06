@@ -11,11 +11,21 @@
     </head>
     <body>
 
+ <img src="img/mock2.jpg" alt="screenShot">
+<a href="index.html"> <div class="mock"></div></a>
+
+
 <div id="content">
 <div id="header">
-    <img src="img/logo.jpg"/>
+    <img class="logo" src="img/logo.jpg"/>
     <h1>NEWSLETTER SIGN UP</h1>
 </div>
+      <div id="thanks">
+      <h1>You did it!</h1><br>
+      <h1>Now you are part of us.</h1>
+      <a href="index.html"> <button type="button">GO HOME</button></a>
+      </div>
+
 
       <form action="index.html" method="post">
         <fieldset>
@@ -37,11 +47,15 @@
                 <option value="other">Other</option>
             </select>    
         </fieldset>
-          <button type="button">JOIN US</button>
+          <button id="done" type="button">JOIN US</button>
      </form>
 </div>
     </body>
      <script>
+
+        //This event listeners read when the users clicks on the fields elements and chnages the style of the 
+        //of each of the fields
+        /*
             $("#name").focus(function() {
                $(this).addClass('focused');
             });
@@ -67,6 +81,13 @@
             $("#community").focusout(function() {
                $(this).removeClass('focused');
             });
+
+*/
+        //
+        $( "#done" ).click(function() {
+         $("form").hide();
+         $("#thanks").show();
+        });
 
 
         </script>
