@@ -14,7 +14,11 @@ body {
   margin: auto;
 }
 
-#header{
+#pop-up-form{
+  display:none;
+}
+
+#form-header{
   height:171px;
 }
 .logo {
