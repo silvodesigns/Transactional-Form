@@ -9,44 +9,61 @@ body {
   color: #384047;
 }
 
-#content{
-  width: 984px;
-  margin: auto;
+
+
+/* PAGE CONTAINER////////////////////*/
+
+#container{
+  position: relative;
 }
+
+/* FORM PARENT DIV////////////////////*/
 
 #pop-up-form{
-  display:none;
+  position:absolute;
+  top:120px;
+  left:20vw;
+  width:600px;
+  background-color:white;
+  padding:20px;
+  border:1px solid green;
+
 }
 
+
+.hide{
+  opacity:0;
+}
+
+.show{
+  opacity:1;
+}
+
+/* FORM HEADER////////////////////*/
 #form-header{
-  height:171px;
+  height:120px;
 }
 .logo {
   width:50px;
 }
-img, h1{
+img, h1, a{
   display:inline-block;
 }
 
-}
-form{
-  margin-left: 90px;
+a{
+  margin-left:40px;
 }
 
+
+
+
+/* FORM////////////////////*/
 input[type="text"],
-input[type="password"],
-input[type="date"],
-input[type="datetime"],
 input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
 textarea,
 select {
   background: rgba(255,255,255,0.1);
-  height: 50px;
+  height: 25px;
   font-size: 16px;
   margin: 0;
   outline: 0;
@@ -122,17 +139,6 @@ label.light {
   margin:0;
   padding:0;
 
-
- }
-
- .mock{
-  position:absolute;
-  z-index:999;
-  width:350px;
-  height:308px;
-  top:160px;
-  margin-left:858px;
-  cursor: pointer;
 
  }
 
