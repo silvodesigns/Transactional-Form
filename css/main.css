@@ -50,7 +50,7 @@ img, h1, a{
   display:inline-block;
 }
 
-a{
+#form-header a{
   margin-left:40px;
 }
 
@@ -129,9 +129,18 @@ label.light {
   display: inline;
 }
 
+/* Thanks////////////////////*/
  #thanks{
-  display:none;
-  }
+  position:absolute;
+  top:120px;
+  left:20vw;
+  width:600px;
+  background-color:white;
+  padding:20px;
+  border:1px solid green;
+ 
+  
+ }
 
  #thanks h1{
 
@@ -141,6 +150,15 @@ label.light {
 
 
  }
+
+ .hideThanks{
+  display:none;
+}
+
+.showThanks{
+  display:block;
+}
+
 
  
 
