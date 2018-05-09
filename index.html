@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
     <body>
 <div id="container">
@@ -27,14 +27,16 @@
             <h1>NEWSLETTER SIGN UP</h1>
              <a class="close" href=""><p>CLOSE</p></a>
         </div>
-        <form action="index.html" method="post">
+        <form id="registration" name="registration" onSubmit="return validateForm()">
           <fieldset>
               <label for="name">FULL NAME</label>
-              <input type="text" id="name" name="user_name" placeholder="Maria Hereda">
+              <input type="text" id="name" name="user_name">
               <label for="email">EMAIL ADDRESS</label>
-              <input type="email" id="email" name="user_email" placeholder="mariahereda@gmail.com">
+              <input type="email" id="email" name="user_email">
+              <p class="error hideThanks"> Please type in a valid email address </p>
               <label for="retype">RETYPE EMAIL ADDRESS</label>
-              <input type="text" id="retype" name="user_name"  placeholder="mariahereda@gmail.com">
+              <input type="text" id="retype" name="email_retype">
+               <p class="error2 hideThanks"> The emails you typed in do not match </p>
           </fieldset>
           <fieldset>
               <label for="community">NEIGHBORHOOD</label>
@@ -47,8 +49,8 @@
                   <option value="other">Other</option>
               </select>    
           </fieldset>
-         <button id="done" type="button">JOIN US</button>
-       </form>
+        <input id="done" type="submit" value="Submit"/>
+      </form>
   </div>
   
   <div id="thanks" class="hideThanks">
@@ -61,22 +63,30 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
 </body>
 <script>
+
+        /*
+
+        These classes hide and show the opacity of the pop up form when the sign up to newsletter buttin is clicked
+        or when the close link is clicked in the form
+
+        .show
+        .hide
+
+        These clases show and hide the thank you pop up message that appears after the user has sign up for ther page
+
+        .showThanks
+        .hideThanks
+
+        */
 
         $(".signUp").on('click', function(e){
           e.preventDefault();
           $("#pop-up-form").addClass('show').removeClass('hide');
         });
+
+        
 
          $(".close").on('click', function(e){
           e.preventDefault();
@@ -85,17 +95,68 @@
 
 
          $("#done").click(function(e) {
-          e.preventDefault();
-         $("#pop-up-form").removeClass('show').addClass('hide')
-         $("#thanks").addClass('showThanks').removeClass('hideThanks');
-        });
 
+               e.preventDefault();
+
+               var user_name = document.getElementById("name");
+               var user_nameValue = user_name.value;
+
+
+               var user_email = document.getElementById("email");
+               var user_emailValue = user_email.value;
+
+
+
+               var email_retype = document.getElementById("retype");
+               var email_retypeValue = email_retype.value;
+
+
+
+               function checkEmail(valuetoCheck){
+
+                   var at = valuetoCheck.indexOf("@");
+                            if( at === -1){
+
+                                $(".error").removeClass("hideThanks");
+
+                            } else {
+                                 $(".error").addClass("hideThanks");
+                            }
+
+               }
+
+               function compareEmail(valueToCompare){
+
+                 
+                  if( valueToCompare !== user_emailValue ){
+
+                           $(".error2").removeClass("hideThanks");
+                  } else {
+                           $(".error2").addClass("hideThanks");
+                  }
+
+
+               }
+               
+               if( user_nameValue.length > 0  && user_emailValue.length > 0  && email_retypeValue.length > 0 ) {
+                     $("#pop-up-form").removeClass('show').addClass('hide')
+                     $("#thanks").addClass('showThanks').removeClass('hideThanks');
+                } else {
+                  alert("You must fill out all fields in the form"); 
+                  checkEmail(user_emailValue);
+                  compareEmail(email_retypeValue);
+                }
+
+        });
 
          $(".closeThanks").click(function(e) {
           e.preventDefault();
          $("#thanks").addClass('hideThanks').removeClass('showThanks');
+          document.getElementById("registration").reset();
+
         });
 
+        
 
 </script>
 </html>
