@@ -91,13 +91,14 @@ input[type="email"]:focus {
  
 }
 
+
 select {
   padding: 6px;
   height: 32px;
   border-radius: 2px;
 }
 
-button {
+#done {
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;

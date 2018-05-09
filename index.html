@@ -49,7 +49,7 @@
                   <option value="other">Other</option>
               </select>    
           </fieldset>
-        <input id="done" type="submit" value="Submit"/>
+        <input id="done" type="submit" value="Submit">
       </form>
   </div>
   
@@ -128,7 +128,7 @@
                function compareEmail(valueToCompare){
 
                  
-                  if( valueToCompare !== user_emailValue ){
+                  if( valueToCompare.length !== user_emailValue.length ){
 
                            $(".error2").removeClass("hideThanks");
                   } else {
